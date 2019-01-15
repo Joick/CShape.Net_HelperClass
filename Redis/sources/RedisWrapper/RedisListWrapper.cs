@@ -1,8 +1,8 @@
-﻿using Jiajue.BeiJi.Redis.RedisCommon;
+﻿using Redis.RedisCommon;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Jiajue.BeiJi.Redis.RedisWrapper
+namespace Redis.RedisWrapper
 {
     /// <summary>
     /// Redis List

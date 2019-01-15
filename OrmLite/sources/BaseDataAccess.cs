@@ -5,7 +5,7 @@ using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Jiajue.BeiJi.Utility.DbConnection
+namespace Utility.DbConnection
 {
     /// <summary>
     /// 数据库基本连接

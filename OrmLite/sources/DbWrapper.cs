@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Jiajue.BeiJi.Utility
+namespace Utility
 {
     /// <summary>
     /// 数据库封装类

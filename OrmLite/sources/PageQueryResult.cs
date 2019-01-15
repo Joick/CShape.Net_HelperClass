@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Jiajue.BeiJi.Utility
+namespace Utility
 {
     /// <summary>
     /// 分页查询用数据模型

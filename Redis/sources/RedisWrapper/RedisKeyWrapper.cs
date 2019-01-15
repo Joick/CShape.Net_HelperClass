@@ -1,10 +1,10 @@
-﻿using Jiajue.BeiJi.Redis.RedisCommon;
+﻿using Redis.RedisCommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Jiajue.BeiJi.Redis.RedisWrapper
+namespace Redis.RedisWrapper
 {
     /// <summary>
     /// Redis Key

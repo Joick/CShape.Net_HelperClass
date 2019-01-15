@@ -1,7 +1,7 @@
 ﻿using log4net;
 using StackExchange.Redis;
 
-namespace Jiajue.BeiJi.Redis.RedisCommon
+namespace Redis.RedisCommon
 {
 
     public static class StackExchangeRedisManager

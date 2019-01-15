@@ -12,9 +12,6 @@
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
-# Unit Test Files
-JiaJue.CoinPlus.BusinessTests/
-
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

@@ -1,4 +1,4 @@
-﻿namespace Jiajue.BeiJi.Redis.RedisCommon
+﻿namespace Redis.RedisCommon
 {
     /// <summary>
     /// redis base wrapper

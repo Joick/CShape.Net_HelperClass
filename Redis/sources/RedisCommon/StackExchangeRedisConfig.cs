@@ -1,7 +1,7 @@
 ﻿using StackExchange.Redis;
 using System.Configuration;
 
-namespace Jiajue.BeiJi.Redis.RedisCommon
+namespace Redis.RedisCommon
 {
     /// <summary>
     /// 配置类
