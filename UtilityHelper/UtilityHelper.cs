@@ -291,5 +291,35 @@ namespace Utility
 
             return (Math.Ads(longRand % (max - min)) + min);
         }
+
+        /// <summary>
+        /// 深拷贝(使用二进制序列化和反序列化)
+        /// model必须使用Serializable特性
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static T Clone<T>(this T obj)
+        {
+            using (var stream = new MemoryStream())
+            {
+                var formatter = new BinaryFormatter();
+                formatter.Serialize(stream, obj);
+                stream.Seek(0, SeekOrigin.Begin);
+                return (T)formatter.Deserialize(stream);
+            }
+        }
+
+        /// <summary>
+        /// 深拷贝(使用json序列化和反序列化)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static T Clone1<T>(this T obj)
+        {
+            var str = JsonConvert.SerializeObject(obj);
+            return JsonConvert.DeserializeObject<T>(str);
+        }
     }
 }
