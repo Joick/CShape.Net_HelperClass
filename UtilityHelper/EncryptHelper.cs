@@ -219,19 +219,28 @@ namespace Utility
             return MD5Decrypt(pswd[0], pswd[1]);
         }
 
-        // 创建Key
+        /// <summary>
+        /// 创建Key
+        /// </summary>
+        /// <returns></returns>
         private static string GenerateKey()
         {
-            DESCryptoServiceProvider desCrypto = (DESCryptoServiceProvider)DESCryptoServiceProvider.Create();
-            return ASCIIEncoding.ASCII.GetString(desCrypto.Key);
+            DES desCrypto = DES.Create();
+            return Encoding.ASCII.GetString(desCrypto.Key);
         }
-        ///MD5加密
+
+        /// <summary>
+        /// MD5加密
+        /// </summary>
+        /// <param name="pToEncrypt"></param>
+        /// <param name="sKey"></param>
+        /// <returns></returns>
         private static string MD5Encrypt(string pToEncrypt, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
             byte[] inputByteArray = Encoding.Default.GetBytes(pToEncrypt);
-            des.Key = ASCIIEncoding.ASCII.GetBytes(sKey);
-            des.IV = ASCIIEncoding.ASCII.GetBytes(sKey);
+            des.Key = Encoding.ASCII.GetBytes(sKey);
+            des.IV = Encoding.ASCII.GetBytes(sKey);
             MemoryStream ms = new MemoryStream();
             CryptoStream cs = new CryptoStream(ms, des.CreateEncryptor(), CryptoStreamMode.Write);
             cs.Write(inputByteArray, 0, inputByteArray.Length);
@@ -241,13 +250,16 @@ namespace Utility
             {
                 ret.AppendFormat("{0:X2}", b);
             }
-            ret.ToString();
+
             return ret.ToString();
-
-
         }
 
-        ///MD5解密
+        /// <summary>
+        /// MD5解密
+        /// </summary>
+        /// <param name="pToDecrypt"></param>
+        /// <param name="sKey"></param>
+        /// <returns></returns>
         private static string MD5Decrypt(string pToDecrypt, string sKey)
         {
             DESCryptoServiceProvider des = new DESCryptoServiceProvider();
@@ -259,8 +271,8 @@ namespace Utility
                 inputByteArray[x] = (byte)i;
             }
 
-            des.Key = ASCIIEncoding.ASCII.GetBytes(sKey);
-            des.IV = ASCIIEncoding.ASCII.GetBytes(sKey);
+            des.Key = Encoding.ASCII.GetBytes(sKey);
+            des.IV = Encoding.ASCII.GetBytes(sKey);
             MemoryStream ms = new MemoryStream();
             CryptoStream cs = new CryptoStream(ms, des.CreateDecryptor(), CryptoStreamMode.Write);
             cs.Write(inputByteArray, 0, inputByteArray.Length);
