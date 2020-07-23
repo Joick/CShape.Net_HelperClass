@@ -1,0 +1,14 @@
+{
+  "serviceName": {
+    "dbName": "localhost6379,localhost6380"
+  },
+  "localhost6379": {
+    "dbCount": 16,
+    "connectionString": "127.0.0.1:6379,allowadmin=true,password=test"
+  },
+  "localhost6380": {
+    "dbCount": 16,
+    "connectionString": "127.0.0.1:6380,allowadmin=true,password=test"
+  }
+}
+
