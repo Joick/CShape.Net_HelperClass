@@ -1,15 +1,15 @@
 namespace Utility
 {
-	public static class XmlHelper
-	{
-		/// <summary>
+    public static class XmlHelper
+    {
+        /// <summary>
         /// 普通序列化
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-		public static string Serialize<T>(T obj)
-		{
-			string xml;
+        public static string Serialize<T>(T obj)
+        {
+            string xml;
 
             try
             {
@@ -36,25 +36,25 @@ namespace Utility
             {
                 xml = null;
             }
-			
-			return xml;
-		}
-		
-		/// <summary>
+
+            return xml;
+        }
+
+        /// <summary>
         /// 兼容0x0016进制错误 序列化
         /// </summary>
         /// <param name="obj"></param>
         /// <returns></returns>
-		public static string SerializeObj<T>(T obj)
-		{
-			string xml;
+        public static string SerializeObj<T>(T obj)
+        {
+            string xml;
 
             try
             {
                 XmlSerializer ser = new XmlSerializer(obj.GetType());
 
-				// StringWriter默认 utf-16
-				// 需要utf-8或者其他编码则override Encoding
+                // StringWriter默认 utf-16
+                // 需要utf-8或者其他编码则override Encoding
                 using (StringWriter writer = new StringWriterWithEncoding())
                 {
                     XmlSerializerNamespaces serializerNS = new XmlSerializerNamespaces();
@@ -66,14 +66,14 @@ namespace Utility
             }
             catch (Exception ex)
             {
-				xml = null;
+                xml = null;
             }
-			
-			return xml;
-		}
-	}
-	
-	
+
+            return xml;
+        }
+    }
+
+
     public sealed class StringWriterWithEncoding : StringWriter
     {
         public override Encoding Encoding
