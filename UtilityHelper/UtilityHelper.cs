@@ -321,5 +321,37 @@ namespace Utility
             var str = JsonConvert.SerializeObject(obj);
             return JsonConvert.DeserializeObject<T>(str);
         }
+
+        /// <summary>
+        /// 深拷贝(使用反射)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public static T CopyByReflection<T>(this T obj)
+        {
+            if (obj is null || obj is string || obj.GetType().IsValueType)
+            {
+                return obj;
+            }
+
+            var retval = Activator.CreateInstance(obj.GetType());
+            FieldInfo[] fields = obj
+                .GetType()
+                .GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static | BindingFlags.Instance);
+            foreach (var fieldInfo in fields)
+            {
+                try
+                {
+                    fieldInfo.SetValue(retval, CopyByReflection(fieldInfo.GetValue(obj)));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            }
+
+            return (T)retval;
+        }
     }
 }
