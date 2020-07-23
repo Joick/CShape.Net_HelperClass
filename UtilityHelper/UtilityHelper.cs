@@ -272,5 +272,24 @@ namespace Utility
                 return ((int)num).ToString();
             }
         }
+
+        /// <summary>
+        /// 获取int64类型随机数
+        /// </summary>
+        /// <param name="min">取数下限</param>
+        /// <param name="max">取数上限</param>
+        /// <returns></returns>
+        public static long GetRandomInt64(long min, long max)
+        {
+            byte[] buffer = new byte[8];
+
+            var random = new Random();
+
+            random.NextBytes(buffer);
+
+            long longRand = BitConverter.ToInt64(buffer, 0);
+
+            return (Math.Ads(longRand % (max - min)) + min);
+        }
     }
 }
